@@ -1,4 +1,4 @@
-package pkg02_colecciones;
+package com.sinensia;
 
 public class Cliente {
     private long id;    

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg02_colecciones;
+package com.sinensia;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -18,7 +18,7 @@ public class FechaSinMinutos extends GregorianCalendar {
         super(year, month, dayOfMonth);
     }
 
-    FechaSinMinutos() {
+    public FechaSinMinutos() {
        //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
        super();
     }

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg02_colecciones;
+package com.sinensia.pruebas;
 
+import com.sinensia.FechaSinMinutos;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -12,7 +13,7 @@ import java.util.GregorianCalendar;
  *
  * @author Admin
  */
-public class ProbandoFechas {
+public class Fechas {
     public static void probar() {
         FechaSinMinutos fecha = new FechaSinMinutos();
         fecha.set(2019, 9, 7);

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg02_colecciones;
+package com.sinensia.pruebas;
 
+import com.sinensia.Cliente;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,9 +14,9 @@ import java.util.Map;
  *
  * @author Admin
  */
-public class PruebasColecciones {
+public class Colecciones {
     
-    static void ejemploHashMap() {
+    public static void ejemploHashMap() {
         HashMap<String, Cliente> diccClientes;
         diccClientes = new HashMap<String, Cliente>();
         Cliente ana = new Cliente(1, "Ana", null); 
@@ -40,7 +41,7 @@ public class PruebasColecciones {
             System.out.println("  Nombre: " + cliente.getNombre());
         }        
     }
-    static void ejemploListas() {        
+    public static void ejemploListas() {        
         ArrayList<Cliente> listaClientes;
         listaClientes = new ArrayList();
         

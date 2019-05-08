@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg02_colecciones;
+package com.sinensia.pruebas;
+
+import com.sinensia.ClienteInvitado;
 
 /**
  *
  * @author Admin
  */
-public class PruebasHerencia {
+public class Herencia {
     
     public static void probandoHerencia() {
         ClienteInvitado invitado = new ClienteInvitado(0, "Juan", null);

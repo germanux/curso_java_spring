@@ -15,7 +15,7 @@ import java.util.GregorianCalendar;
 public class ProbandoFechas {
     public static void probar() {
         FechaSinMinutos fecha = new FechaSinMinutos();
-        fecha.set(2019, 5, 8);
+        fecha.set(2019, 9, 7);
         System.out.println("Fecha: " + fecha.toString());
         Date fechaDate =  fecha.getTime();
         System.out.println("Fecha: " + fechaDate.toString());
@@ -25,10 +25,11 @@ public class ProbandoFechas {
         
         if (miCumple.getTimeWithoutSeconds().after(fecha.getTimeWithoutSeconds())) {
             System.out.println("Aun no cumples");           
-        } else if (miCumple.before(fecha)) {
+        } else if (miCumple.getTimeWithoutSeconds().before(fecha.getTimeWithoutSeconds())) {
             System.out.println("Ya cumpliste");
-        } else if (miCumple.equals(fecha)) {
-            System.out.println("¡Cumpleaños feliz!");
+        } else if (miCumple.getTimeWithoutSeconds().equals(fecha.getTimeWithoutSeconds())) {
+            System.out.println("¡Cumpleaños feliz!".equals(""));
         }
+        (new Object()).equals(fecha);
     }
 }

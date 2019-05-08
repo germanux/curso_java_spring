@@ -24,7 +24,7 @@ public class FechaSinMinutos extends GregorianCalendar {
     }
     // Sobreescribimos el método getTime()
     public Date getTimeWithoutSeconds() {
-        Date fecha =  new Date(getTimeInMillis());
+        Date fecha =  new Date(((getTimeInMillis() + 86399) / 86400) * 86400);
         fecha.setHours(0);
         fecha.setMinutes(0);
         fecha.setSeconds(0);

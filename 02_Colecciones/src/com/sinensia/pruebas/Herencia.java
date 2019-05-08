@@ -19,4 +19,7 @@ public class Herencia {
         System.out.println("Cliente: " + invitado.getNombre()
             + " duracion: " + invitado.getDuracionMax());
     }
+    public static void probandoPolimorfismo() {
+        
+    }
 }

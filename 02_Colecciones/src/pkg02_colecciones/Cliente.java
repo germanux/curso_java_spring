@@ -6,6 +6,9 @@ public class Cliente {
     private String email;
     private boolean activo;
 
+    /*public Cliente () { // Constructor por defecto
+        
+    }*/
     public Cliente(long id, String nombre, String email) {
         this.id = id;
         this.nombre = nombre;

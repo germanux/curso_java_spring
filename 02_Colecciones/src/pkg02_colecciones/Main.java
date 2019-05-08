@@ -9,6 +9,9 @@ public class Main {
      */
     public static void main(String[] args) {
         
+        ProbandoFechas.probar();
+        probandoHerencia();
+        /*
         ArrayList<Cliente> listaClientes;
         listaClientes = new ArrayList();
         
@@ -19,7 +22,13 @@ public class Main {
         for (int i = 0; i < listaClientes.size(); i++) {
             System.out.println("Cliente " + i + ": " 
                 + listaClientes.get(i).getNombre());
-        }
+        }*/
+        
     }
-    
+    public static void probandoHerencia() {
+        ClienteInvitado invitado = new ClienteInvitado(0, "Juan", null);
+        invitado.setDuracionMax(10);
+        System.out.println("Cliente: " + invitado.getNombre()
+            + " duracion: " + invitado.getDuracionMax());
+    }
 }

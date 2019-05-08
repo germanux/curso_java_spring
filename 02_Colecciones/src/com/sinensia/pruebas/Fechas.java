@@ -24,13 +24,14 @@ public class Fechas {
         FechaSinMinutos miCumple;
         miCumple = new FechaSinMinutos(2019, 9, 7);
         
-        if (miCumple.getTimeWithoutSeconds().after(fecha.getTimeWithoutSeconds())) {
+        if (miCumple.equals(fecha)) {
+            System.out.println("¡Cumpleaños feliz!");
+        } 
+        else if (miCumple.after(fecha)) {
             System.out.println("Aun no cumples");           
-        } else if (miCumple.getTimeWithoutSeconds().before(fecha.getTimeWithoutSeconds())) {
+        } 
+        else if (miCumple.before(fecha)) {
             System.out.println("Ya cumpliste");
-        } else if (miCumple.getTimeWithoutSeconds().equals(fecha.getTimeWithoutSeconds())) {
-            System.out.println("¡Cumpleaños feliz!".equals(""));
-        }
-        (new Object()).equals(fecha);
+        } 
     }
 }

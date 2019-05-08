@@ -30,4 +30,22 @@ public class FechaSinMinutos extends GregorianCalendar {
         fecha.setSeconds(0);
         return fecha;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        
+        // return super.equals(obj); //To change body of generated methods, choose Tools | Templates.
+        if (obj instanceof FechaSinMinutos) {
+            // ((FechaSinMinutos) obj).get(ERA)
+            // Casting = Conversión de tipos
+            FechaSinMinutos objFecha = (FechaSinMinutos) obj;
+            if (this.get(YEAR) == objFecha.get(YEAR) 
+                    && this.get(MONTH) == objFecha.get(MONTH)
+                    && this.get(DAY_OF_MONTH) == objFecha.get(DAY_OF_MONTH)) {
+               return  true;
+            }
+        }
+        return false;
+    }
+    
 }

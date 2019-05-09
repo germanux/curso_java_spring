@@ -28,4 +28,11 @@ public class ClienteVIP extends Cliente {
     public void setBeneficios(String beneficios) {
         this.beneficios = beneficios;
     }
+
+    @Override
+    public void mostrar() {
+        super.mostrar(); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("ES VIP: " + beneficios);
+    }
+    
 }

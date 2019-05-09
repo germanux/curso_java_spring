@@ -59,9 +59,16 @@ public class Polimorfismo {
         
         HashMap<String, Cliente> diccClientes;
         diccClientes = new HashMap<String, Cliente>();
+        diccClientes.keySet();
+        diccClientes.values();
         for (Cliente cliente : clientes) {
             diccClientes.put(cliente.getNombre() + "-"+cliente.getId(), cliente);
         } 
+        // Modificar en dos lineas
+        Cliente clienteAna = diccClientes.get("Ana-1");
+        clienteAna.setEmail("ana@gmai.com");
+        diccClientes.get("Ana-1").setEmail("ana@gmail.com");    // En una
+        // instanceof
         for (Map.Entry<String, Cliente> entradaCliente : diccClientes.entrySet()) {
             String clave = entradaCliente.getKey();
             System.out.println("Clave: " + clave);

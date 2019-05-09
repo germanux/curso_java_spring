@@ -11,6 +11,7 @@ import com.sinensia.ClienteVIP;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  *
@@ -57,10 +58,10 @@ public class Polimorfismo {
     }
     public static void poliformHashMap() {
         
-        HashMap<String, Cliente> diccClientes;
-        diccClientes = new HashMap<String, Cliente>();
-        diccClientes.keySet();
-        diccClientes.values();
+        TreeMap<String, Cliente> diccClientes;
+        diccClientes = new TreeMap<String, Cliente>();
+        //diccClientes.keySet();
+        //diccClientes.values();
         for (Cliente cliente : clientes) {
             diccClientes.put(cliente.getNombre() + "-"+cliente.getId(), cliente);
         } 
@@ -68,11 +69,22 @@ public class Polimorfismo {
         Cliente clienteAna = diccClientes.get("Ana-1");
         clienteAna.setEmail("ana@gmai.com");
         diccClientes.get("Ana-1").setEmail("ana@gmail.com");    // En una
+        
+        ClienteInvitado cliBea = (ClienteInvitado) diccClientes.get("Bea-3");
+        cliBea.setDuracionMax(cliBea.getDuracionMax() + 10);
         // instanceof
         for (Map.Entry<String, Cliente> entradaCliente : diccClientes.entrySet()) {
+            
             String clave = entradaCliente.getKey();
             System.out.println("Clave: " + clave);
             Cliente valor = entradaCliente.getValue();
+            if (valor instanceof ClienteInvitado) {
+                ClienteInvitado cliInv = (ClienteInvitado) valor;
+                cliInv.setDuracionMax(cliInv.getDuracionMax() + 10);
+            } else if (valor instanceof ClienteVIP) {
+                ClienteVIP cliVip = (ClienteVIP) valor;
+                cliVip.setBeneficios(cliVip.getBeneficios() + ", Copas gratis");
+            }
             valor.mostrar();
         }
     }

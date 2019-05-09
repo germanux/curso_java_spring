@@ -11,6 +11,8 @@ package com.sinensia;
  */
 public class ClienteInvitado extends Cliente {
             
+    // public String nombre;
+    
     public ClienteInvitado(long id, String nombre, String email) {
         super(id, nombre, email);
     }
@@ -31,8 +33,15 @@ public class ClienteInvitado extends Cliente {
      *
      * @param duracionMax new value of duracionMax
      */
+    // @Override
     public void setDuracionMax(int duracionMax) {
         this.duracionMax = duracionMax;
     }
-
+    // Sobreescritura del método mostrar()
+    @Override
+    public void mostrar() {
+        System.out.print("INVITADO ");
+        super.mostrar();
+        System.out.println("  Duración máxima " + duracionMax);
+    }
 }

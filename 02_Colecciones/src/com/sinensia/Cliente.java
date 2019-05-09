@@ -1,16 +1,21 @@
 package com.sinensia;
 
 public class Cliente {
-    private long id;    
-    private String nombre;
+    protected long id;    
+    protected String nombre;
     private String email;
     private boolean activo;
 
     /*public Cliente () { // Constructor por defecto
         
     }*/
-    public Cliente(long id, String nombre, String email) {
+    public Cliente(long id, String nombre, String email) /* throws Exception*/ {
+        
         this.id = id;
+        if (nombre == null || nombre == "") {
+            // throw new Exception("Nombre de cliente inválido");
+            System.err.println("Nombre de cliente inválido");
+        }
         this.nombre = nombre;
         this.email = email;
         this.activo = true;
@@ -22,6 +27,10 @@ public class Cliente {
         return nombre;
     }
     public void setNombre(String nombre) {
+        if (nombre == null || nombre == "") {
+            // throw new Exception("Nombre de cliente inválido");
+            System.err.println("Nombre de cliente inválido");
+        }
         this.nombre = nombre;
     }
     public String getEmail() {
@@ -39,5 +48,9 @@ public class Cliente {
         this.activo = activo;
     }
     
-    
+    public void mostrar() {
+        System.out.println("Cliente " + nombre);
+        System.out.println("  Id: " + this.id);
+        System.out.println("  Email: " + this.getEmail());
+    }
 }

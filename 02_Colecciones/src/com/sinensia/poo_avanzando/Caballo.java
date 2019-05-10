@@ -9,7 +9,7 @@ package com.sinensia.poo_avanzando;
  *
  * @author Admin
  */
-public class Caballo extends Mascota {
+public class Caballo extends Mascota implements Mamifero {
 
     public Caballo( String nombre, float tamanho) {
         super(4, true, false, nombre, tamanho);
@@ -43,4 +43,20 @@ public class Caballo extends Mascota {
         System.out.println(propietario.getNombre()
             + " ALIMENTAME!!!");
     }
+
+    @Override
+    public String mamar(Mamifero mam) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String nombrar() {
+        return nombre;
+    }
+
+    @Override
+    public String toString() {
+        return "Caballo " + nombre; //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

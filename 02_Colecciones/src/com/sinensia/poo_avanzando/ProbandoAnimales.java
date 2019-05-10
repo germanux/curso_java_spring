@@ -25,8 +25,18 @@ public class ProbandoAnimales {
         rocinante.mover();
         rocinante.comer();
         
-        Cliente yo = new Cliente(3, "Yo", null);
-        Animal miMascota = new Dragon("Drogo", 4959);
-        ((Mascota) miMascota).setPropietario(yo);
+        Cliente yo = new Cliente(3, "German", null);
+        Animal miDragon = new Dragon("Drogo", 4959);
+        Mascota miMascota = (Mascota) miDragon;
+        miMascota.setPropietario(yo);
+        ((Mascota) miDragon).saludarAlPropietario();
+        ((Mascota) miDragon).pedirComida();
+        miDragon.volar();
+        
+        Tigre tigre = new Tigre("Tigretón", 2.55f);
+        
+        System.out.println("¿Que mama el tigre?" 
+                + tigre.mamar(rocinante));
+        
     }  
 }

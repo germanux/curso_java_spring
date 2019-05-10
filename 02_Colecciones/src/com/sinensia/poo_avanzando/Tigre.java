@@ -9,7 +9,8 @@ package com.sinensia.poo_avanzando;
  *
  * @author Admin
  */
-public class Tigre extends AnimalSalvaje {
+public class Tigre extends AnimalSalvaje 
+        implements Depredador, Mamifero {
 
     public Tigre(String nombre, float tamanho) {
         super(4, true, false, nombre, tamanho);
@@ -26,6 +27,32 @@ public class Tigre extends AnimalSalvaje {
     @Override
     public void volar() {
         throw new UnsupportedOperationException("No puede volar, loco!"); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cazar(String presa) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String mamar(Mamifero mam) {
+        
+        return "El tigre " + nombre + " mama de "+
+                mam.toString();
+       // return "El tigre " + nombre + " mama de "+
+        //        mam.nombrar();
+        /*if(mam instanceof Animal) {
+            Animal anim = (Animal) mam;
+            return "El tigre " + nombre + " mama de "+
+                anim.getNombre();
+        } else {
+            return null;
+        }*/
+    }
+
+    @Override
+    public String nombrar() {
+        return nombre;
     }
     
     

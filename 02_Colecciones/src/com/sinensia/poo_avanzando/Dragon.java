@@ -9,7 +9,7 @@ package com.sinensia.poo_avanzando;
  *
  * @author Admin
  */
-public class Dragon extends Mascota {
+public class Dragon extends Mascota implements Depredador {
 
     public Dragon(String nombre, float tamanho) {
         super(4, true, false, nombre, tamanho);
@@ -35,6 +35,12 @@ public class Dragon extends Mascota {
   
         System.out.println(propietario.getNombre()
             + " te saluda con una mirada chunga "
-                + propietario.getNombre() + "!!!");
+                + nombre  + "!!!");
+    }
+
+    @Override
+    public void cazar(String presa) {
+        System.out.println(nombre
+            + " quema, vuela y caza a " + presa);
     }
 }

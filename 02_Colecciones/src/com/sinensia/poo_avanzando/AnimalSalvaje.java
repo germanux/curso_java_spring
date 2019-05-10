@@ -9,7 +9,7 @@ package com.sinensia.poo_avanzando;
  *
  * @author Admin
  */
-public abstract class AnimalSalvaje extends Animal {
+public abstract class AnimalSalvaje extends Animal{
 
     
     public AnimalSalvaje(String nombre, float tamanho) {

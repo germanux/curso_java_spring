@@ -36,18 +36,14 @@ public class Tigre extends AnimalSalvaje
 
     @Override
     public String mamar(Mamifero mam) {
-        
-        return "El tigre " + nombre + " mama de "+
-                mam.toString();
-       // return "El tigre " + nombre + " mama de "+
-        //        mam.nombrar();
-        /*if(mam instanceof Animal) {
+                
+        if(mam instanceof Animal) {
             Animal anim = (Animal) mam;
             return "El tigre " + nombre + " mama de "+
                 anim.getNombre();
         } else {
             return null;
-        }*/
+        }
     }
 
     @Override

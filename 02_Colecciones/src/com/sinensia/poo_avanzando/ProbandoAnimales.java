@@ -38,5 +38,7 @@ public class ProbandoAnimales {
         System.out.println("¿Que mama el tigre?" 
                 + tigre.mamar(rocinante));
         
+        System.out.println("¿Que mama el caballo?" 
+                + rocinante.mamar(tigre));
     }  
 }

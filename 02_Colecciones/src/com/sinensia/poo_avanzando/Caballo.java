@@ -11,7 +11,7 @@ package com.sinensia.poo_avanzando;
  */
 public class Caballo extends Mascota implements Mamifero {
 
-    public Caballo( String nombre, float tamanho) {
+    public Caballo(String nombre, float tamanho) {
         super(4, true, false, nombre, tamanho);
     }
 
@@ -22,7 +22,7 @@ public class Caballo extends Mascota implements Mamifero {
 
     @Override
     public void comer() {
- 
+
         System.out.println(nombre + " pasta pasto");
     }
 
@@ -33,20 +33,21 @@ public class Caballo extends Mascota implements Mamifero {
 
     @Override
     public void saludarAlPropietario() {
-  
+
         System.out.println(propietario.getNombre()
-            + " te saluda con una coz"
+                + " te saluda con una coz"
                 + propietario.getNombre() + "!!!");
     }
 
     public void pedirComida() {
         System.out.println(propietario.getNombre()
-            + " ALIMENTAME!!!");
+                + " ALIMENTAME!!!");
     }
 
     @Override
     public String mamar(Mamifero mam) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "El tigre " + nombre + " mama de "
+                + mam.nombrar();
     }
 
     @Override
@@ -58,5 +59,5 @@ public class Caballo extends Mascota implements Mamifero {
     public String toString() {
         return "Caballo " + nombre; //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

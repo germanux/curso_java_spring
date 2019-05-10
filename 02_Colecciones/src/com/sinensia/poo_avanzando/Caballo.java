@@ -31,4 +31,16 @@ public class Caballo extends Mascota {
         throw new UnsupportedOperationException("No puede volar, loco!"); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public void saludarAlPropietario() {
+  
+        System.out.println(propietario.getNombre()
+            + " te saluda con una coz"
+                + propietario.getNombre() + "!!!");
+    }
+
+    public void pedirComida() {
+        System.out.println(propietario.getNombre()
+            + " ALIMENTAME!!!");
+    }
 }

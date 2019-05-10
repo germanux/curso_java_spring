@@ -9,29 +9,24 @@ package com.sinensia.poo_avanzando;
  *
  * @author Admin
  */
-public class TortugaNinja extends Mascota {
+public class Tigre extends AnimalSalvaje {
 
-    public TortugaNinja(String nombre, float tamanho) {
-        super(4, true, true, nombre, tamanho);
+    public Tigre(String nombre, float tamanho) {
+        super(4, true, false, nombre, tamanho);
     }
     @Override
     public void mover() {
-        System.out.println(nombre +  " Salto mortal de edificio.");
+        System.out.println(nombre + " corre veloz");
     }
     @Override
     public void comer() {
  
-        System.out.println(nombre + " ingiere pizzas");
+        System.out.println(nombre + " caza, mastica, engulle.");
     }
     @Override
     public void volar() {
         throw new UnsupportedOperationException("No puede volar, loco!"); //To change body of generated methods, choose Tools | Templates.
     }
-    @Override
-    public void saludarAlPropietario() {
-  
-        System.out.println(propietario.getNombre()
-            + " te saluda QUE PACHA COLEGA "
-                + propietario.getNombre() + "!!!");
-    }
+    
+    
 }

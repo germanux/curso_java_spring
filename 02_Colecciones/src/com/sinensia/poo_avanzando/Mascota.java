@@ -18,6 +18,11 @@ public abstract class Mascota extends Animal {
     public Mascota(int patas, boolean aerobico, boolean acuatico, String nombre, float tamanho) {
         super(patas, aerobico, acuatico, nombre, tamanho);
     }
+    public void pedirComida() {
+        System.out.println(propietario.getNombre()
+            + " ALIMENTAME!!!");
+    }
+    public abstract void saludarAlPropietario();
 
     public Cliente getPropietario() {
         return propietario;

@@ -5,6 +5,9 @@
  */
 package com.sinensia.poo_avanzando;
 
+import com.sinensia.Cliente;
+import com.sun.security.ntlm.Client;
+
 /**
  *
  * @author Admin
@@ -21,5 +24,9 @@ public class ProbandoAnimales {
         Caballo rocinante = new Caballo("Rocinante", 3f);
         rocinante.mover();
         rocinante.comer();
+        
+        Cliente yo = new Cliente(3, "Yo", null);
+        Animal miMascota = new Dragon("Drogo", 4959);
+        ((Mascota) miMascota).setPropietario(yo);
     }  
 }

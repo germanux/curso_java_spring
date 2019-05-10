@@ -30,10 +30,11 @@ public abstract class Animal {
         this.acuatico = acuatico;
         this.nombre = nombre;
         this.tamanho = tamanho;
-    }
-    
+    }  
     
     public abstract void mover();
+    public abstract void comer();    
+    public abstract void volar();
             
     
     public boolean isAnfibio() {

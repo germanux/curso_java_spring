@@ -18,5 +18,8 @@ public class ProbandoAnimales {
                 = new TortugaNinja("Michelangelo", 175.5f);
         michelangelo.mover();
         
+        Caballo rocinante = new Caballo("Rocinante", 3f);
+        rocinante.mover();
+        rocinante.comer();
     }  
 }

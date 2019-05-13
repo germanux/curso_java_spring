@@ -20,5 +20,6 @@ public class ProbandoDAO {
         repoCli.poner(new ClienteInvitado(2, "Juan", "jjj@a"));
         repoCli.poner(new ClienteInvitado(3, "Bea", "bbb@a"));
         System.out.println("Juan: " + repoCli.leerUno(2).toString());
+        System.out.println("Repo: " + repoCli.toString());
     }
 }

@@ -23,8 +23,8 @@ public class ProbandoGenericos {
         String texto2 = "" + objNum.toString();
         
         ArrayList<Integer> listaInt = new ArrayList<>();
-        insertarDoble(listaInt, 10);
-        insertarDoble(listaInt, 15);
+        insertarDobleGenerico(listaInt, 10);
+        insertarDobleGenerico(listaInt, 15);
         System.out.println("Enteros: " + listaInt.toString());
         
         ArrayList<String> listaStr = new ArrayList<>();
@@ -37,8 +37,11 @@ public class ProbandoGenericos {
         insertarDobleGenerico(listaDate, new Date(84, 9, 20));
         System.out.println("Fechas: " + listaDate.toString());
         
+        ArrayList<Double> listaDouble = new ArrayList<>();
+        insertarDobleGenerico(listaDouble, new Double(2.55));
     }
-    public static<Clase> void insertarDobleGenerico(ArrayList<Clase> lista, Clase valor) {
+    public static<Tipo> void insertarDobleGenerico
+            (ArrayList<Tipo> lista, Tipo valor) {
         lista.add(valor);
         lista.add(valor);
     }

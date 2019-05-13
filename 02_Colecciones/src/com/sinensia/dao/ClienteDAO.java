@@ -8,6 +8,7 @@ package com.sinensia.dao;
 
 import com.sinensia.Cliente;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  *
@@ -41,5 +42,10 @@ public class ClienteDAO implements InterfazDAO<Cliente>{
     @Override
     public void eliminar(long id) {        
         mapa.remove(id);
+    }
+
+    @Override
+    public List<Cliente> leerTodos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

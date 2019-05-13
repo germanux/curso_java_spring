@@ -1,16 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.sinensia.pruebas;
 
 import com.sinensia.Cliente;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  *
@@ -41,7 +38,20 @@ public class Colecciones {
             System.out.println("Cliente " + parClaveValor.getKey());
             Cliente cliente = parClaveValor.getValue();
             System.out.println("  Nombre: " + cliente.getNombre());
-        }        
+        }
+        diccClientes.put("d4", new Cliente(7, "Fulano", "ff@ff.com"));
+        Map<Date, Cliente> mapClientesFecha = new TreeMap<Date, Cliente>();
+        mapClientesFecha.put(new Date(82, 4, 9), luis);
+        mapClientesFecha.put(new Date(81, 4, 9), new Cliente(7, "Fulano", "ff@ff.com"));
+        mapClientesFecha.put(new Date(117, 9, 19), new Cliente(8, "Mengano", "mm@ff.com"));
+        mapClientesFecha.put(new Date(80, 7, 10), diccClientes.get("c3"));
+        
+        System.out.println("\n\n****** Mapa ordenado fecha *******");
+        for (Map.Entry<Date, Cliente> entrada : mapClientesFecha.entrySet())
+        {
+            System.out.println("\n - Clave: " + entrada.getKey().toString());
+            System.out.println("   Valor: " + entrada.getValue().toString());
+        }
     }
     public static void ejemploListas() {        
         ArrayList<Cliente> listaClientes;

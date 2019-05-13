@@ -1,5 +1,7 @@
 package com.sinensia;
 
+import static com.sinensia.dao.ProbandoDAO.probarCliente;
+import com.sinensia.genericos.ProbandoGenericos;
 import com.sinensia.poo_avanzando.ProbandoAnimales;
 import com.sinensia.pruebas.Fechas;
 import com.sinensia.pruebas.Colecciones;
@@ -14,10 +16,14 @@ public class Main {
         Polimorfismo.poliformHashMap();*/
         //Colecciones.ejemploListas();
         //Colecciones.ejemploSet();
-        /*Colecciones.ejemploHashMap();
+        
+        // Colecciones.ejemploHashMap();
+        // ProbandoGenericos.probarMetodo();
+        probarCliente() ;
+        /*
         Colecciones.ejemploListas();
         Fechas.probar();
         probandoHerencia();*/
-        ProbandoAnimales.probarClasesAbstractas();
+        //ProbandoAnimales.probarClasesAbstractas();
     }
 }

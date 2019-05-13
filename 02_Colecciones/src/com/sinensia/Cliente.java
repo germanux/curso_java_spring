@@ -53,4 +53,18 @@ public class Cliente {
         System.out.println("  Id: " + this.id);
         System.out.println("  Email: " + this.getEmail());
     }
+
+    @Override
+    public String toString() {
+        // return super.toString(); //To change body of generated methods, choose Tools | Templates.
+        return "Cliente [" + id + ", " + nombre + ", " + email + "]";
+    }    
 }
+
+
+
+
+
+
+
+

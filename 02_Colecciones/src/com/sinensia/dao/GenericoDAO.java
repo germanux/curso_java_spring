@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.sinensia.dao;
 
-import com.sinensia.Cliente;
+import com.sinensia.Entidad;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,17 +15,19 @@ import java.util.Map;
 /**
  *
  * @author Admin - German
+ * @param <T>  El tipo hereda de Entidad
  */
-public class ClienteDAO implements InterfazDAO<Cliente> {
+public class GenericoDAO<T extends Entidad> 
+        implements InterfazDAO<T>{
+    
+    HashMap<Long, T> mapa;
 
-    HashMap<Long, Cliente> mapa;
-
-    public ClienteDAO() {
+    public GenericoDAO() {
         mapa = new HashMap<>();
     }
 
     @Override
-    public void poner(Cliente cli) {
+    public void poner(T cli) {
         if (cli == null) {
             System.err.println("No se pueden añadir nulos");
         } else {
@@ -33,7 +36,7 @@ public class ClienteDAO implements InterfazDAO<Cliente> {
     }
 
     @Override
-    public Cliente leerUno(long id) {
+    public T leerUno(long id) {
         if (mapa.containsKey(id)) {
             return mapa.get(id);
         }
@@ -42,7 +45,7 @@ public class ClienteDAO implements InterfazDAO<Cliente> {
     }
 
     @Override
-    public void eliminar(Cliente cliente) {
+    public void eliminar(T cliente) {
         mapa.remove(cliente.getId());
     }
 
@@ -52,19 +55,22 @@ public class ClienteDAO implements InterfazDAO<Cliente> {
     }
 
     @Override
-    public List<Cliente> leerTodos() {
-        ArrayList<Cliente> lista;
+    public List<T> leerTodos() {
+        ArrayList<T> lista;
         lista = new ArrayList<>();
-        for (Map.Entry<Long, Cliente> ent : mapa.entrySet()) {
+        for (Map.Entry<Long, T> ent : mapa.entrySet()) {
             lista.add(ent.getValue());
         }
         return lista;   // Cast implicito
     }
     @Override
-    public void modificar(Cliente nuevoValor) {
-        Cliente cli = mapa.get(nuevoValor.getId()) ;
+    public void modificar(T nuevoValor) {
+        
+        mapa.replace(nuevoValor.getId(), nuevoValor);
+        
+        /*T cli = mapa.get(nuevoValor.getId()) ;        
         cli.setActivo(nuevoValor.isActivo());
         cli.setEmail(nuevoValor.getEmail());
-        cli.setNombre(nuevoValor.getNombre());
+        cli.setNombre(nuevoValor.getNombre());*/
     }
 }

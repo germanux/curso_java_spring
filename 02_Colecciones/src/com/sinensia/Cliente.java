@@ -1,7 +1,9 @@
 package com.sinensia;
 
-public class Cliente {
-    protected long id;    
+import com.sinensia.dao.GenericoDAO;
+
+public class Cliente extends Entidad {
+     
     protected String nombre;
     private String email;
     private boolean activo;
@@ -10,8 +12,8 @@ public class Cliente {
         
     }*/
     public Cliente(long id, String nombre, String email) /* throws Exception*/ {
-        
-        this.id = id;
+        super(id);
+        //this.id = id;
         if (nombre == null || nombre == "") {
             // throw new Exception("Nombre de cliente inválido");
             System.err.println("Nombre de cliente inválido");
@@ -20,9 +22,7 @@ public class Cliente {
         this.email = email;
         this.activo = true;
     }
-    public long getId() {
-        return this.id;
-    }
+    
     public String getNombre() {
         return nombre;
     }

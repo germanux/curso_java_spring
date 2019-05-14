@@ -30,24 +30,8 @@ public class MainEjercicio {
                 String linea = escaner.nextLine();
                 System.out.println(">>>> \"" + linea + "\"");
                 try {
-                    String campos[] = linea.split(",");
-                    Cliente cliente;
-                    if (campos.length == 4 || campos.length == 5) {
-                        long id = Integer.parseInt(campos[0]);
-                        String nombre = campos[1];
-                        String email = campos[2];
-                        boolean activo = campos[3].equals("true") ? true : false;
-                        int duracionMax = 0;
-                        if (campos.length == 5)  {
-                            duracionMax = Integer.parseInt(campos[4]);                            
-                            cliente = new ClienteInvitado(id, nombre, email);
-                            ((ClienteInvitado) cliente).setDuracionMax(duracionMax);
-                        } else {
-                            cliente = new Cliente(id, nombre, email);
-                        }                        
-                        cliente.setActivo(activo);
-                        mapaDat.put(id, cliente);
-                    }
+                    Cliente cliente = parsearCliente(linea);
+                    mapaDat.put(cliente.getId(), cliente);
                 } catch (Exception ex) {
                     System.err.println("Error en parseo: " + ex.getMessage());
                 }
@@ -68,4 +52,23 @@ public class MainEjercicio {
         }
     }
 
+    static Cliente parsearCliente(String linea) {
+        String campos[] = linea.split(",");
+        Cliente cliente = null;
+        if (campos.length == 4 || campos.length == 5) { //   &&
+            long id = Integer.parseInt(campos[0]);
+            String nombre = campos[1];      String email = campos[2];
+            boolean activo = campos[3].equals("true") ? true : false;
+            int duracionMax = 0;
+            if (campos.length == 5) {
+                duracionMax = Integer.parseInt(campos[4]);
+                cliente = new ClienteInvitado(id, nombre, email);
+                ((ClienteInvitado) cliente).setDuracionMax(duracionMax);
+            } else {
+                cliente = new Cliente(id, nombre, email);
+            }
+            cliente.setActivo(activo);
+        }
+        return cliente;
+    }
 }

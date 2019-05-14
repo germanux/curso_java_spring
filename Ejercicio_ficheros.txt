@@ -6,4 +6,4 @@ si el 5º campo es un número, será invitado (y este la duración máxima).
 3,Luis,lll@aaaa.com,false
 -----
 4,Bea invitada,bbb@aaa.com,true,10
-4,Juana invitada,jjjj@aaa.com,true,20
+5,Juana invitada,jjjj@aaa.com,true,20

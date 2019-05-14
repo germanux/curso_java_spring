@@ -37,6 +37,11 @@ public class ClienteInvitado extends Cliente {
     public void setDuracionMax(int duracionMax) {
         this.duracionMax = duracionMax;
     }
+    @Override
+    public String toString() {
+        // return super.toString(); //To change body of generated methods, choose Tools | Templates.
+        return "Cliente Invitado [" + id + ", " + nombre + ", " + getEmail() + ", " + duracionMax + "]";
+    }    
     // Sobreescritura del método mostrar()
     @Override
     public void mostrar() {

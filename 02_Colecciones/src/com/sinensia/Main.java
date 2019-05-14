@@ -5,6 +5,8 @@ import com.sinensia.genericos.ProbandoGenericos;
 import com.sinensia.poo_avanzando.ProbandoAnimales;
 import com.sinensia.pruebas.Fechas;
 import com.sinensia.pruebas.Colecciones;
+import static com.sinensia.pruebas.Ficheros.escrituraStream;
+import static com.sinensia.pruebas.Ficheros.lecturaFich;
 import static com.sinensia.pruebas.Ficheros.probarEscritura;
 import static com.sinensia.pruebas.Herencia.probandoHerencia;
 import com.sinensia.pruebas.Polimorfismo;
@@ -23,12 +25,14 @@ public class Main {
         
         // Colecciones.ejemploHashMap();
         // ProbandoGenericos.probarMetodo();
-        probarCliente() ;
-        try {
+        //probarCliente() ;
+        /*try {
             probarEscritura();
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
+        // escrituraStream();
+        lecturaFich();
             /*
             Colecciones.ejemploListas();
             Fechas.probar();

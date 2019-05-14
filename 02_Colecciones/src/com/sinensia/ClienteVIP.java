@@ -13,10 +13,24 @@ public class ClienteVIP extends Cliente {
 
     private String beneficios;
 
+    /**
+     *
+     * @param id
+     * @param nombre
+     * @param email
+     */
     public ClienteVIP(long id, String nombre, String email) {
         super(id, nombre, email);
         beneficios = "";
     }    
+
+    /**
+     *
+     * @param id
+     * @param nombre
+     * @param email
+     * @param beneficios
+     */
     public ClienteVIP(long id, String nombre, String email, String beneficios) {
         super(id, nombre, email);
         this.beneficios = beneficios;

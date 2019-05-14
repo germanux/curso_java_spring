@@ -2,7 +2,7 @@ package com.sinensia;
 
 import com.sinensia.dao.GenericoDAO;
 
-public class Cliente extends Entidad {
+public class Cliente extends Entidad implements Comparable<Cliente>{
      
     protected String nombre;
     private String email;
@@ -59,6 +59,17 @@ public class Cliente extends Entidad {
         // return super.toString(); //To change body of generated methods, choose Tools | Templates.
         return "Cliente [" + id + ", " + nombre + ", " + email + "]";
     }    
+
+    @Override
+    public int compareTo(Cliente otroCli) {
+        // Comparamos por nombre, por el compareTo de String
+        if (nombre.compareTo(otroCli.nombre) == 0) {    
+            // Si son iguales, comparamos por email
+            return email.compareTo(otroCli.email);
+        } else { // devolvemos la comparacion del nombre
+            return nombre.compareTo(otroCli.nombre);
+        }
+    }
 }
 
 

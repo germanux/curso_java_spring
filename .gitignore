@@ -24,3 +24,5 @@ hs_err_pid*
 /02_Colecciones/dist/
 build
 build
+/03_LecturaClientes/nbproject/private/
+/03_LecturaClientes/dist/

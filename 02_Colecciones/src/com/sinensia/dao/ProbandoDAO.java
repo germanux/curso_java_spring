@@ -27,8 +27,7 @@ public class ProbandoDAO {
         Cliente cli = repoCli.leerUno(2);
      //   System.out.println("Cliente modificado: " + cli.toString());
         repoCli.eliminar(1);
-        List<Cliente> lista =
-                repoCli.leerTodos();
+        List<Cliente> lista = repoCli.leerTodos();
         for (Cliente cliente : lista) {
             System.out.println("Cliente: " 
                     + cliente.toString());

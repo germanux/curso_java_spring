@@ -5,8 +5,12 @@ import com.sinensia.genericos.ProbandoGenericos;
 import com.sinensia.poo_avanzando.ProbandoAnimales;
 import com.sinensia.pruebas.Fechas;
 import com.sinensia.pruebas.Colecciones;
+import static com.sinensia.pruebas.Ficheros.probarEscritura;
 import static com.sinensia.pruebas.Herencia.probandoHerencia;
 import com.sinensia.pruebas.Polimorfismo;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Main {
 
@@ -20,10 +24,15 @@ public class Main {
         // Colecciones.ejemploHashMap();
         // ProbandoGenericos.probarMetodo();
         probarCliente() ;
-        /*
-        Colecciones.ejemploListas();
-        Fechas.probar();
-        probandoHerencia();*/
-        //ProbandoAnimales.probarClasesAbstractas();
+        try {
+            probarEscritura();
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            /*
+            Colecciones.ejemploListas();
+            Fechas.probar();
+            probandoHerencia();*/
+            //ProbandoAnimales.probarClasesAbstractas();
     }
 }

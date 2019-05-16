@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Otros campos FORM</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Otros campos FORM</h1>
+        <form action="#" method="post" enctype="text/plain">
+            <input type="button" value="Boton JS" onclick="alert('Hola qué pacha')"/>
+            <input type="button" value="Boton JS externo" 
+                   onclick="mostrarMensaje('¡Hola de nuevo!')"/>
+            <br/><label for="fichero">Fichero:</label>
+            <input type="file" id="fichero" name="fichero"/>
+            <br/><label for="fecha">Fecha:</label>
+            <input type="datetime" id="fecha" name="fecha"/>
+            <br/><label for="passwd">Passwd:</label>
+            <input type="password"  id="passwd" name="passwd"/>
+            <br/><label for="passwd-encriptada">Campo no visible</label>
+            <input type="hidden"  id="passwd-encriptada" 
+                   name="passwd-encriptada" value="KJhkj3434"/>
+            
+            <br/>Otros campos<br/>
+            <input type="url" id="direccion-serv" name="direccion-serv"/>
+            <input type="range" name="rango" id="rango" min="-50" max="50"/>
+            <input type="tel" name="telefono" id="telefono" maxlength="10"/>
+            <input type="search" name="busqueda" id="busqueda"/>
+            <br/><input type="submit" id="enviar"  name="enviar" value="Enviar"/>
+            
+            <br/>Otros campos especiales<br/>
+            <input type="checkbox" checked="checked"/> O checado o no
+            <br/>Opciones: 
+                <input type="radio" id="tipoCliente"  name="tipoCliente"
+                       value="ClienteNormal"/>Cliente normal
+                <input type="radio" id="tipoClienteInv"  name="tipoCliente"
+                       value="ClienteInvitado" checked="checked"/>Cliente invitado
+                <input type="radio" id="tipoClienteVIP"  name="tipoCliente"
+                       value="ClienteVIP"/>Cliente VIP
+            <br/>
+            <!-- Comentarios -->
+            Frecuencia de viajes:
+            <select id="frecuencia" name="frecuencia" multiple="">
+                <option value="1">Varias veces al día</option>
+                <option value="2">Una vez al día</option>
+                <option value="3">Varias veces a la semana</option>
+                <option value="4">Varias veces al mes</option>
+            </select>
+            <br/>Comentarios o mensaje:<br/>
+            <textarea id="comentarios" cols="30"
+                      rows="6" name="comentarios" 
+                      placeholder="Tú quenta, que se te ignorará."></textarea>
+        </form>
+        <table border="2">
+            <caption>Lista de vainas</caption>
+            <tr><!-- Corresponde a un afila-->
+                <td>Vaina:</td> <!-- Corresponde a una column-->
+                <td>Peine</td>
+                <td>15 €</td>
+            </tr>
+            <tr>
+                <td>Vaina:</td>
+                <td>Quitapelos para Jorge</td>
+                <td>50 €</td>
+            </tr>
+            <tr>
+                <td>Vaina:</td>
+                <td>Un coche estropeao</td>
+                <td>200 €</td>
+            </tr>
+        </table>
+        <img alt="Texto alternativo IMG" 
+             src="images/Garry-Tonon-1.jpg"
+             style="width: 50%; height: 40%"/>
+        
+        <script src="js/04_mascampos.js"></script>
+    </body>
+</html>

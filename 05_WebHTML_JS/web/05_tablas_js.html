@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
     <head>
         <title>Otros campos FORM</title>
@@ -6,10 +7,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>Tabla generada JS</h1>  
+        <h1>Tabla generada JS</h1>
+        <form>
+            <input id="nombre"  name="nombre" type="text"/>
+            <input id="tipo"  name="tipo" type="text"/>
+            <input id="precio"  name="precio" type="number"/>
+            <input id="cantidad"  name="cantidad" type="number"/>
+            <input type="button" value="Añadir" onclick="agregarCosa()"/>
+        <input type="button" value="Añadir V2" 
+               onclick="agregarCosaDirectamenteATabla() "/>
+        <input type="button" value="Añadir V3" 
+               onclick="agregarCosaDirectamenteATablaInnerHTML() "/>
+        
+       
+            
+        </form>
         <table border="2">
- 
         </table>        
         <script src="js/05_tabla_js.js"></script>
+        <script src="js/04_mascampos.js"></script>
     </body>
 </html>
+

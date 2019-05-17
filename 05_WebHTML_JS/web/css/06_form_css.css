@@ -1,0 +1,28 @@
+/* 
+    Created on : 17-may-2019, 13:26:06
+    Author     : Admin
+*/
+* {
+    margin: 0px;
+    padding: 0px;    
+}
+/* Selector de etiqueta */
+form {
+    background-color: #AAFFAA;
+    padding: 10px;
+    display: block;
+}
+.margen-lateral {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+form  div /* , form input*/ {
+    display: block;
+}
+label {
+    width: 200px;
+    display: inline-block;
+}
+#email {
+    font-size: 1.2em;
+}

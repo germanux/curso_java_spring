@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Formulario registro Cliente</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Formulario registro Cliente</h1>
+        <form name="form1" method="get" action="registro">
+            <table>
+                <tr><td>Nombre:</td><td>
+                    <input type="text" name="nombre" id="nombre" size="30"
+                           value="Fulanito"/>
+                    </td></tr>
+                <tr><td>Edad:</td><td>
+                    <input type="number" name="edad" id="edad" size="4"
+                           value="30"/>
+                    </td></tr>
+                <tr><td>Email:</td><td>
+                    <input type="email" name="email" id="email" size="30"
+                           value="fulanito@email.com"/>
+                    </td></tr>
+                <tr><td>Activo:</td><td>
+                        <input type="checkbox" name="activo" id="activo"
+                               checked="checked"/> Activo
+                    </td></tr>
+            </table>
+            <input type="submit" value="Registrarse"/>
+        </form>
+    </body>
+</html>

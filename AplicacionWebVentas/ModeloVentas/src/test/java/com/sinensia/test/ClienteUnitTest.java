@@ -52,13 +52,13 @@ public class ClienteUnitTest {
     @Test
     public void probarClienteDAO() {
         ClienteDAO daoCli = new ClienteDAO();
-        daoCli.poner(new Cliente(1, "Pru", "pru@pru",
+        daoCli.insertar(new Cliente(1, "Pru", "pru@pru",
               (short) 20, (short) 1, "Pru123"));
-        daoCli.poner(new Cliente(2, "Pru2", "pru2@pru",
+        daoCli.insertar(new Cliente(2, "Pru2", "pru2@pru",
               (short) 22, (short) 0, "Pru123"));
         
-        assertEquals("2", daoCli.leerTodos().size());   
-        Cliente  cli = daoCli.leerUno(2);
+        assertEquals("2", daoCli.obtenerTodos().size());   
+        Cliente  cli = daoCli.obtenerUno(2);
         assertTrue(cli.getEmail().equals("pru2@pru"));        
     }
 }

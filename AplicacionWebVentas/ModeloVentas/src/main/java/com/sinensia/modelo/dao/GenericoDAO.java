@@ -27,17 +27,20 @@ public class GenericoDAO<T extends Entidad>
     }
     static int contadorIds;
     @Override
-    public void poner(T cli) {
+    public T insertar(T cli) {
         contadorIds++;
         if (cli == null) {
             System.err.println("No se pueden añadir nulos");
         } else {
             mapa.put(contadorIds, cli);
+            cli.setId(contadorIds);
+            return cli;
         }
+        return null;
     }
 
     @Override
-    public T leerUno(Integer id) {
+    public T obtenerUno(Integer id) {
         if (mapa.containsKey(id)) {
             return mapa.get(id);
         }
@@ -56,7 +59,7 @@ public class GenericoDAO<T extends Entidad>
     }
 
     @Override
-    public List<T> leerTodos() {
+    public List<T> obtenerTodos() {
         ArrayList<T> lista;
         lista = new ArrayList<>();
         for (Map.Entry<Integer, T> ent : mapa.entrySet()) {
@@ -65,9 +68,10 @@ public class GenericoDAO<T extends Entidad>
         return lista;   // Cast implicito
     }
     @Override
-    public void modificar(T nuevoValor) {
+    public T modificar(T nuevoValor) {
         
         mapa.replace(nuevoValor.getId(), nuevoValor);
+        return nuevoValor;
         
         /*T cli = mapa.get(nuevoValor.getId()) ;        
         cli.setActivo(nuevoValor.isActivo());

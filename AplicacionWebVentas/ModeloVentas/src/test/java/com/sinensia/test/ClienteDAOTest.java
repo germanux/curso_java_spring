@@ -17,16 +17,16 @@ public class ClienteDAOTest {
     @Test
     // @Order(1)
     public void clienteBien_1() {
-        daoCli.poner(new Cliente(null, "Pru", "pru@pru.com",
+        daoCli.insertar(new Cliente(null, "Pru", "pru@pru.com",
               (short) 20, (short) 1, "Pru123"));        
-        assertEquals("pru@pru", daoCli.leerUno(1).getEmail());
+        assertEquals("pru@pru", daoCli.obtenerUno(1).getEmail());
         daoCli.eliminar(1);
-        assertNull(daoCli.leerUno(1));
+        assertNull(daoCli.obtenerUno(1));
     }
     @Test
     public void clienteMal_1() {
-        daoCli.poner(new Cliente(null, "", "pru@pru.com",
+        daoCli.insertar(new Cliente(null, "", "pru@pru.com",
               (short) 20, (short) 1, "Pru123"));  
-        assertEquals("pru@pru", daoCli.leerUno(1).getEmail());              
+        assertEquals("pru@pru", daoCli.obtenerUno(1).getEmail());              
     }
 }

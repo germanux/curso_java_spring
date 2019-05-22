@@ -14,10 +14,10 @@ import java.util.List;
  */
 public interface InterfazDAO<T> {
     
-    void poner(T valor);
-    T leerUno(Integer id);
-    List<T> leerTodos();
+    T insertar(T valor);
+    T obtenerUno(Integer id);
+    List<T> obtenerTodos();
     void eliminar(T valor);
     void eliminar(Integer id);
-    void modificar(/*long id,*/ T nuevoValor);
+    T modificar(/*long id,*/ T nuevoValor);
 }

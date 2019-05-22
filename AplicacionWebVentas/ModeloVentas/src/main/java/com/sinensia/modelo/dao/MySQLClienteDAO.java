@@ -114,7 +114,16 @@ public class MySQLClienteDAO implements InterfazDAO<Cliente> {
 
     @Override
     public void eliminar(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try (Connection conex = DriverManager.getConnection(
+                Constantes.CONEXION, Constantes.USUARIO, Constantes.PASSWORD)) {
+            String sqlQuery = "DELETE FROM cliente WHERE id = ?;";
+            PreparedStatement sentencia = conex.prepareStatement(sqlQuery);
+            sentencia.setInt(1, id); // Primer ? interrogante
+            sentencia.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(MySQLClienteDAO.class.getName())
+                    .log(Level.SEVERE, "Error SQL", ex);
+        }
     }
 
     public void eliminar(String email) {

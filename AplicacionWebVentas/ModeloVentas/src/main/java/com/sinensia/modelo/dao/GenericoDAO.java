@@ -25,13 +25,14 @@ public class GenericoDAO<T extends Entidad>
     public GenericoDAO() {
         mapa = new HashMap<>();
     }
-
+    static int contadorIds;
     @Override
     public void poner(T cli) {
+        contadorIds++;
         if (cli == null) {
             System.err.println("No se pueden añadir nulos");
         } else {
-            mapa.put(cli.getId(), cli);
+            mapa.put(contadorIds, cli);
         }
     }
 

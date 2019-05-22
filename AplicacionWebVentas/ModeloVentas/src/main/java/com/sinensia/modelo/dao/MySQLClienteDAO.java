@@ -74,6 +74,10 @@ public class MySQLClienteDAO implements InterfazDAO<Cliente> {
     public Cliente obtenerUno(Integer id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    public Cliente obtenerUno(String email) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     @Override
     public List<Cliente> obtenerTodos() {
@@ -88,6 +92,10 @@ public class MySQLClienteDAO implements InterfazDAO<Cliente> {
     @Override
     public void eliminar(Integer id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public void eliminar(String email) {        
+        eliminar(obtenerUno(email).getId());
     }
 
     @Override

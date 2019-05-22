@@ -131,7 +131,24 @@ public class MySQLClienteDAO implements InterfazDAO<Cliente> {
     }
 
     @Override
-    public Cliente modificar(Cliente nuevoValor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Cliente modificar(Cliente cliente) {
+         try (Connection conex = DriverManager.getConnection(
+                Constantes.CONEXION, Constantes.USUARIO, Constantes.PASSWORD)) {
+            String sqlQuery
+                    = "UPDATE cliente SET nombre=?, email = ?,password=?, edad=?, activo=? WHERE id = ?;";
+            PreparedStatement sentencia = conex.prepareStatement(sqlQuery);
+            sentencia.setString(1, cliente.getNombre()); // Primer ? interrogante
+            sentencia.setString(2, cliente.getEmail()); // Segundo ? interrogante
+            sentencia.setString(3, cliente.getPassword());
+            sentencia.setShort(4, cliente.getEdad());
+            sentencia.setShort(5, cliente.getActivo());
+            sentencia.setInt(6, cliente.getId());
+            sentencia.executeUpdate();
+            return cliente;
+        } catch (SQLException ex) {
+            Logger.getLogger(MySQLClienteDAO.class.getName())
+                    .log(Level.SEVERE, "Error SQL", ex);
+            return null;
+        }
     }
 }

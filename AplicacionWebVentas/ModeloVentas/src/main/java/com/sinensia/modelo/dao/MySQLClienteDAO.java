@@ -4,8 +4,10 @@ import com.sinensia.modelo.Cliente;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -51,7 +53,7 @@ public class MySQLClienteDAO implements InterfazDAO<Cliente> {
     @Override
     public Cliente insertar(Cliente cliente) {
         try (Connection conex = DriverManager.getConnection(
-                Constantes.CONEXION, Constantes.USUARIO, Constantes.PASSWORD ) ) {
+                Constantes.CONEXION, Constantes.USUARIO, Constantes.PASSWORD)) {
             String sqlQuery
                     = "INSERT INTO cliente (nombre, email, password, edad, activo) "
                     + " VALUES ( ?, ?, ?, ?, ? ) ";
@@ -74,14 +76,35 @@ public class MySQLClienteDAO implements InterfazDAO<Cliente> {
     public Cliente obtenerUno(Integer id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     public Cliente obtenerUno(String email) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public List<Cliente> obtenerTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try (Connection conex = DriverManager.getConnection(
+                Constantes.CONEXION, Constantes.USUARIO, Constantes.PASSWORD)) {
+            String sqlQuery = "SELECT id, nombre, edad, email, password, activo  FROM cliente";
+            PreparedStatement sentencia = conex.prepareStatement(sqlQuery);
+            ArrayList<Cliente> clientes = new ArrayList<>();
+            ResultSet res =  sentencia.executeQuery();
+            while ( res.next()) {
+                int id = res.getInt("id");
+                String nombre = res.getString("nombre");
+                String email = res.getString("email");
+                String password = res.getString("password");
+                short edad = res.getShort("edad");
+                short activo = res.getShort("activo");
+                Cliente cli = new Cliente(id, nombre, email, edad, activo, password);
+                clientes.add(cli);
+            }
+            return clientes;
+        } catch (SQLException ex) {
+            Logger.getLogger(MySQLClienteDAO.class.getName())
+                    .log(Level.SEVERE, "Error SQL", ex);
+            return null;
+        }
     }
 
     @Override
@@ -93,8 +116,8 @@ public class MySQLClienteDAO implements InterfazDAO<Cliente> {
     public void eliminar(Integer id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    public void eliminar(String email) {        
+
+    public void eliminar(String email) {
         eliminar(obtenerUno(email).getId());
     }
 

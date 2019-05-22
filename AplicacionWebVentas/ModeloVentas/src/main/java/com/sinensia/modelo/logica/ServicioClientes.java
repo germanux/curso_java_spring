@@ -1,14 +1,15 @@
 package com.sinensia.modelo.logica;
 
 import com.sinensia.modelo.Cliente;
-import com.sinensia.modelo.dao.ClienteDAO;
+// import com.sinensia.modelo.dao.ClienteDAO;
+import com.sinensia.modelo.dao.MySQLClienteDAO;
 
 public class ServicioClientes {
 
-    private ClienteDAO dao;
+    private MySQLClienteDAO dao;
 
     public ServicioClientes() {
-        dao = new ClienteDAO();
+        dao = new MySQLClienteDAO();
     }
 
     public Cliente insertar(String nombre, String email,

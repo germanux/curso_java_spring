@@ -69,7 +69,8 @@ public class ServicioClientes {
         if (nombre == null || nombre.equals("")) {
             return false;
         }
-        if (email == null || email.equals("")) {
+        if (email == null || email.equals("")
+                || passwd == null || passwd.equals("")) {
             return false;
         }
         short iEdad = 0;

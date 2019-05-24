@@ -9,43 +9,64 @@
         <input id="btn" type="button" value="Probar"/>
         <div id="divDatos">TODO write content</div>
         <script>
+
             function mostrarDatos() {
                 var divDatos = document.getElementById("divDatos");
                 divDatos.innerHTML = "Datos de objetos";
                 var objCliente = new Object();
                 objCliente.nombre = "Juan";
-                objCliente.edad = 27;
-                objCliente["activo"] = true;
-                divDatos.innerHTML += 
-                        "Nombre: " + objCliente["nombre"] 
+                objCliente["edad"] = 27; // objCliente.edad = 27;
+                objCliente.activo = true; // objCliente["activo"] = true;
+                divDatos.innerHTML +=
+                        "Nombre: " + objCliente["nombre"]
                         + " Activo: " + objCliente.activo + "</br>";
-                objCliente.toString = function() {
-                    return "Nombre: " + this.nombre 
-                    +  " Edad: " + this["edad"]; 
+                objCliente.toString = function () {
+                    return "Nombre: " + this.nombre
+                            + " Edad: " + this["edad"];
                 };
                 var funATexto = new Function("param", "return this.nombre + \" - \" + param");
                 funATexto.propiedadSinSentido = "No tengo razon para vivir";
                 objCliente.aTexto = funATexto;
-                divDatos.innerHTML += objCliente.toString()  + "</br>" ;
+                divDatos.innerHTML += objCliente.toString() + "</br>";
                 divDatos.innerHTML += objCliente.aTexto("VALOR 1", "VALOR 2");
-                
+
                 var Cliente = function (nom, edad) {
-                    this.nombre = nom;  
+                    this.nombre = nom;
                     this.edad = edad;
-                    this.enTexto = function () { 
+                    this.enTexto = function () {
                         return "Cliente: " + this.nombre + " edad = " + this.edad;
                     };
                 };
-                var miCliente = new Cliente("Ana" , 30);
+                // Método común como en Java
+                Cliente.prototype.enTexto = function () {
+                    return "Cliente: " + this.nombre + " edad = " + this.edad;
+                };
+                // Método estático como en Java
+                Cliente.enTexto = function (cli) {
+                    return "Cliente: " + cli.nombre + " edad = " + cli.edad;
+                };
+                // Cliente("se Pierde", 00);
+                var miCliente = new Cliente("Ana", 30);
                 divDatos.innerHTML += miCliente.enTexto() + "<br/>";
-                
+                // Formato correcto de JSON
                 var otroCliente = {
                     "nombre": "Luis",
                     "edad": 37,
                     "activo": true,
-                    "enTexto": function() { return "Cli" + this.nombre}
+                    "enTexto": function () {
+                        return "Cli" + this.nombre
+                    }
                 };
-                divDatos.innerHTML += otroCliente.enTexto() + " > " 
+                // Otros formatos permitidos en JS
+                var otroCliente2 = {
+                    'nombre': "Luis",
+                    edad: 37,
+                    "activo": true,
+                    "enTexto": function () {
+                        return "Cli" + this.nombre
+                    }
+                };
+                divDatos.innerHTML += otroCliente.enTexto() + " > "
                         + otroCliente.edad;
                 for (var clave in otroCliente) {
                     divDatos.innerHTML += "<br/>" + otroCliente[clave];
@@ -54,6 +75,18 @@
             var btn = document.getElementById("btn");
             // btn.onclick = mostrarDatos;
             btn.addEventListener("click", mostrarDatos);
+
+            class ClaseCliente {    // Azucar sintáctico para lo mismo 
+                // que antes de los objetos
+                constructor(nombre, edad, act) {
+                    this.nombre = nombre;
+                    this.edad = edad;
+                    this.activo = act;
+                }
+                toString () {
+                    return "Cli" + this.nombre;
+                }
+            }
         </script>
     </body>
 </html>

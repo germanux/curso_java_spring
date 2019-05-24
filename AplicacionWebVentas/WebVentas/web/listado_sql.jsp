@@ -16,7 +16,8 @@
         <title>Listado con JSTL (core y sql)</title>
     </head>
     <body>
-        <h1>Listado con JSTL (core y sql)</h1>
+        <%@include file="cabecera.jsp" %>
+        <h2>Listado con JSTL (core y sql)</h2>
         
         <table border="2">
             <thead>

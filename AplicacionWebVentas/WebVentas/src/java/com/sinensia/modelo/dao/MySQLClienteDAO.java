@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MySQLClienteDAO implements InterfazDAO<Cliente> {
-
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     public MySQLClienteDAO() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -29,7 +29,7 @@ public class MySQLClienteDAO implements InterfazDAO<Cliente> {
             Logger.getLogger(MySQLClienteDAO.class.getName())
                     .log(Level.SEVERE, "Otro error", ex);
         }
-    }
+    }// </editor-fold>
 
     public boolean crear(String nombre, String email,
             String passwd, int edad, boolean activo) {

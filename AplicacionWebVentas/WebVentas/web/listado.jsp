@@ -20,7 +20,8 @@
         <title>Listado clientes</title>
     </head>
     <body>
-        <h1>Listado clientes</h1>
+        <%@include file="cabecera.jsp" %>
+        <h2>Listado clientes</h2>
 
         <table border="2">
             <thead>

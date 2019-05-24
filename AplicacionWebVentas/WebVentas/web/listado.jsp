@@ -8,9 +8,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.sinensia.modelo.logica.*" %>
 <%@page import="com.sinensia.modelo.Cliente" %>
-<%! ServicioClientes srvCli; %>
-<% srvCli = new ServicioClientes(); 
-List<Cliente> clientes = srvCli.obtenerTodos();
+<%! ServicioClientes srvCli;%>
+<% srvCli = new ServicioClientes();
+    List<Cliente> clientes = srvCli.obtenerTodos();
 %>
 
 <!DOCTYPE html>
@@ -21,7 +21,7 @@ List<Cliente> clientes = srvCli.obtenerTodos();
     </head>
     <body>
         <h1>Listado clientes</h1>
-        
+
         <table border="2">
             <thead>
                 <tr>
@@ -29,9 +29,21 @@ List<Cliente> clientes = srvCli.obtenerTodos();
                     <th>Email</th>
                 </tr>
             </thead>
-            <tr><td>Aaaaa</td><td>aaa@aaa</td></tr>
-            <tr><td>Aaaaa</td><td>aaa@aaa</td></tr>
-            <tr><td>Aaaaa</td><td>aaa@aaa</td></tr>
+<%-- Manera rollo servlet cutre --%>
+<% for (Cliente cli : clientes) {
+        out.println("<tr><td>" + cli.getNombre() + "</td>");
+        out.println("<td>" + cli.getEmail() + "</td></tr>");
+    } %>
+    
+<%-- Manera rollo JSP medio cutre --%>
+<% for (int i = 0; i < clientes.size(); i++) { %>
+    
+<tr><td><%= clientes.get(i).getNombre() %> </td>
+    <td><%= clientes.get(i).getEmail()%> </td></tr>
+
+<%   }   %>
+
+
         </table>
     </body>
 </html>

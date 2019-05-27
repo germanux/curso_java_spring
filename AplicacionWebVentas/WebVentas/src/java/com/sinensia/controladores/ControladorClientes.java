@@ -44,10 +44,13 @@ public class ControladorClientes extends HttpServlet {
         Cookie galleta = new Cookie("nombre_busqueda", nombre);
         galleta.setMaxAge(10000);
         response.addCookie(galleta);
+        /*Cookie galleta2 = new Cookie("otra_cookie", nombre);
+        response.addCookie(galleta2);*/
                 
         ServicioClientes srvCli = new ServicioClientes();
         List<Cliente> listado = srvCli.obtenerTodos();
         List<Cliente> listaPorNombre = new ArrayList<>();
+        
         for (Cliente cliente : listado) {
             if (cliente.getNombre().toLowerCase()
                     .contains(nombre.toLowerCase())) {
@@ -74,7 +77,7 @@ public class ControladorClientes extends HttpServlet {
         
         String nombre = request.getParameter("nombre");
         String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        String password = request.getParameter("password_encrip");
         String edad = request.getParameter("edad");
         String activo = request.getParameter("activo");
         

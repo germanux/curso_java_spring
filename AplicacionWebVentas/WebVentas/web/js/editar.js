@@ -29,6 +29,7 @@ var alPulsarModificar = function () {
         }*/
     };
     // Definimos la petición
+    // document.location = "www.otraweb.com";
     peticionHTTP.open("POST", "http://localhost:8084/WebVentas/clientes2.do", true);
     peticionHTTP.setRequestHeader("Content-type" , 
             "application/x-www-form-urlencoded");
@@ -42,7 +43,8 @@ var alPulsarModificar = function () {
           + "&activo=" + encodeURIComponent(document.getElementById("activo").value)
           + "&edad=" + encodeURIComponent(document.getElementById("edad").value);
     
-    alert(cadenaEnvio);
+    alert("¿Qué se va a enviar?\n" + cadenaEnvio);
     peticionHTTP.send(cadenaEnvio);
 };
-document.getElementById("btn_modificar").addEventListener("click", alPulsarModificar );
+// document.getElementById("btn_modificar").addEventListener("click", alPulsarModificar );
+document.getElementById("btn_modificar").onclick = alPulsarModificar;

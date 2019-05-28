@@ -31,10 +31,10 @@ public class ClientesControladorREST extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         response.setContentType("application/json;charset=UTF-8");
-        
-        try (PrintWriter salida = response.getWriter()) {  
+
+        try (PrintWriter salida = response.getWriter()) {
             String nombre = request.getParameter("nombre");
             String email = request.getParameter("email");
             String password = request.getParameter("password_encrip");
@@ -43,19 +43,19 @@ public class ClientesControladorREST extends HttpServlet {
 
             ServicioClientes servCli;
             servCli = new ServicioClientes();
-            
-            Cliente cli = servCli.obtenerUno( email);
+
+            Cliente cli = servCli.obtenerUno(email);
+            String jsonCli = " { ";
             if (cli != null) {
                 cli = servCli.modificar(cli.getId(), nombre, email, password, edad, activo);
                 if (cli != null) {
-                    System.out.print("{");
-                    System.out.print("   \"id\" : \"" + cli.getId() + "\"");
-                    System.out.print("   \"nombre\" : \"" + cli.getNombre() + "\"");
-                    System.out.print("}");
+                    jsonCli += "   \"id\" : \"" + cli.getId() + "\"";
+                    jsonCli += "   \"nombre\" : \"" + cli.getNombre() + "\"";
                 }
             }
-            System.out.println(">>>>> " + nombre);
-           // salida.println("{'nombre' : '"  + nombre +  "'}");
+            jsonCli += "}";
+            salida.print(jsonCli);
+            System.out.println(">>>>> " + jsonCli);
         }
     }
 
@@ -72,7 +72,6 @@ public class ClientesControladorREST extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }*/
-
     /**
      * Returns a short description of the servlet.
      *

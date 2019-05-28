@@ -23,7 +23,11 @@ var alPulsarModificar = function () {
     peticionHTTP.onreadystatechange = function () {
         // alert("Ha cambiado de estado");
         if (this.readyState === 4 && this.status === 200) {
-            alert("Hemos recibido algo!" + this.responseText);            
+            // alert("Hemos recibido algo!" + this.responseText);     
+            var jsonResp = this.responseText;
+            var objResp = JSON.parse(jsonResp); // Deserializar JSON  en un objeto JS
+            alert ("¿Email recibido?  "  + objResp["email"]
+                    + " Y el nombre es  " + objResp.nombre);
         } /*else {
             alert("Aun NO hemos recibido nada!");
         }*/

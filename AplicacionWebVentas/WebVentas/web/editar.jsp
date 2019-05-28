@@ -39,6 +39,10 @@
             <input type="reset" value="Limpiar"/>
             <input id="btn_modificar" type="button" value="Modificar"/>            
         </form>
+        <p>Id : <span></span></p>
+        <p>Nombre : <span></span></p>
+        <p>Email : <span></span></p>
+            
         <script src="js/md5.min.js"></script>
         <script src="js/encriptacion.js"></script>
         <script src="js/editar.js"></script>

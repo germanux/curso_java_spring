@@ -38,7 +38,7 @@ public class ControladorClientes extends HttpServlet {
             HttpServletResponse response)
             throws ServletException, IOException {
         
-        String nombre = request.getParameter("nombre");        
+        String nombre = request.getParameter("nombre_busq");        
         nombre = nombre != null ? nombre : "";
         
         Cookie galleta = new Cookie("nombre_busqueda", nombre);

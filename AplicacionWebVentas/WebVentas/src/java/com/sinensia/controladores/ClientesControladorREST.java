@@ -50,7 +50,7 @@ public class ClientesControladorREST extends HttpServlet {
                 cli = servCli.modificar(cli.getId(), nombre, email, password, edad, activo);
                 if (cli != null) {
                     jsonCli += "   \"id\" : \"" + cli.getId() + "\"";
-                    jsonCli += "   \"nombre\" : \"" + cli.getNombre() + "\"";
+                    jsonCli += " , \"nombre\" : \"" + cli.getNombre() + "\"";
                 }
             }
             jsonCli += "}";

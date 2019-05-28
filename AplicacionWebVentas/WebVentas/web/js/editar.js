@@ -21,16 +21,28 @@ var alPulsarModificar = function () {
     var peticionHTTP = new XMLHttpRequest(); // Objeto AJAX
     // ¿Que tiene que hacer al recibir la respuesta?
     peticionHTTP.onreadystatechange = function () {
-        alert("Ha cambiado de estado");
+        // alert("Ha cambiado de estado");
         if (this.readyState === 4 && this.status === 200) {
             alert("Hemos recibido algo!" + this.responseText);            
-        } else {
+        } /*else {
             alert("Aun NO hemos recibido nada!");
-        }
+        }*/
     };
     // Definimos la petición
-    peticionHTTP.open("PUT", "http://localhost:8084/WebVentas/clientes2.do", true);
+    peticionHTTP.open("POST", "http://localhost:8084/WebVentas/clientes2.do", true);
+    peticionHTTP.setRequestHeader("Content-type" , 
+            "application/x-www-form-urlencoded");
     // lanzamos la petición
-    peticionHTTP.send(null);
+    var form1 = document.getElementById("form1");
+    var formData = new FormData(form1);
+    var cadenaEnvio = 
+          "nombre=" + encodeURIComponent(document.getElementById("nombre").value)
+          + "&email=" + encodeURIComponent(document.getElementById("email").value)
+          + "&password_encrip=" + encodeURIComponent(document.getElementById("password_encrip").value)
+          + "&activo=" + encodeURIComponent(document.getElementById("activo").value)
+          + "&edad=" + encodeURIComponent(document.getElementById("edad").value);
+    
+    alert(cadenaEnvio);
+    peticionHTTP.send(cadenaEnvio);
 };
 document.getElementById("btn_modificar").addEventListener("click", alPulsarModificar );

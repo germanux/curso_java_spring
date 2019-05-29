@@ -1,6 +1,8 @@
 package com.sinensia;
 
+import com.google.gson.Gson;
 import com.sinensia.modelo.MySQLCliente;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Admin - German
  */
 public class RegistroServlet extends HttpServlet {
+
 
     @Override
     protected void doGet(HttpServletRequest peticion,
@@ -33,29 +36,29 @@ public class RegistroServlet extends HttpServlet {
                 salida.println("<li>Num " + i + "</li>");
             }
             salida.println("</ul>");
-            
+
             String nombre = peticion.getParameter("nombre");
             String strEdad = peticion.getParameter("edad");
             int edad = Integer.parseInt(strEdad);
             String email = peticion.getParameter("email");
             String strActivo = peticion.getParameter("activo");
             boolean activo = false;
-            if (strActivo != null)  
+            if (strActivo != null) {
                 activo = true;
+            }
             // boolean activo = strActivo != null;
-            
+
             salida.println("<p>nombre = " + nombre + "</p>");
-            salida.println("<p>edad = " + edad+ "</p>");
-            salida.println("<p>email = " + email+ "</p>");
-            salida.println("<p>activo = " + activo+ "</p>");
-            
+            salida.println("<p>edad = " + edad + "</p>");
+            salida.println("<p>email = " + email + "</p>");
+            salida.println("<p>activo = " + activo + "</p>");
+
             MySQLCliente bdCliente = new MySQLCliente();
-            if (bdCliente.crear(nombre, email, "Passwd1234", edad, activo)) {                
+            if (bdCliente.crear(nombre, email, "Passwd1234", edad, activo)) {
                 salida.println("<p>Guardado correctamente</p>");
             } else {
                 salida.println("<p>Guardado ERRONEAMENTE</p>");
             }
-            
             salida.println("</body></html>");
             salida.println("");
             salida.println("");

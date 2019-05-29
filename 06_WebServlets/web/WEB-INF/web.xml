@@ -7,6 +7,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ServletRegistro</servlet-name>
-        <url-pattern>/registro</url-pattern>
+        <url-pattern>/registro.do</url-pattern>
     </servlet-mapping>
 </web-app>

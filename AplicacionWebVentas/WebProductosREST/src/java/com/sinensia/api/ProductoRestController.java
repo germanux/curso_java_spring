@@ -1,5 +1,7 @@
 package com.sinensia.api;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 // Decoradores en forma de anotación
-@WebServlet( asyncSupported = true, urlPatterns = "api/productos" )
+@WebServlet( asyncSupported = true, urlPatterns = "/api/productos" )
 public class ProductoRestController extends HttpServlet        
 {
     @Override
@@ -32,7 +34,17 @@ public class ProductoRestController extends HttpServlet
         }
         bufRead.close();
         
-        escritorRespuesta.println(textoJson.toString().toUpperCase());
         System.out.println(">>>> " + textoJson.toString().toUpperCase());
+       
+        Gson gson = new Gson();
+        Producto producto = gson.fromJson(textoJson.toString(), Producto.class);
+        
+        System.out.println(">>>> " + producto.getNombre());
+        
+        producto.setNombre(producto.getNombre().toUpperCase());
+        producto.setPrecio("5000 bolivares");
+        
+        String jsonRespuesta = gson.toJson(producto);
+        escritorRespuesta.println(jsonRespuesta);
     }
 }

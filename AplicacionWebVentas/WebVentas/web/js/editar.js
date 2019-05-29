@@ -28,13 +28,28 @@ var alPulsarModificar = function () {
             var objResp = JSON.parse(jsonResp); // Deserializar JSON  en un objeto JS
             alert ("¿Email recibido?  "  + objResp["email"]
                     + " Y el nombre es  " + objResp.nombre);
+            console.log("JSON: >> " + jsonResp);
+            var divInfo = document.getElementById("div_info");
+            divInfo.style = "display: block";
+            /*var spanNombre = document.getElementById("span_nombre");
+            var spanEmail = document.getElementById("span_email");
+            var spanPassword = document.getElementById("span_password");*/
+            var spanId = document.getElementById("span_id");
+            var spanEdad = document.getElementById("span_edad");
+            var spanActivo = document.getElementById("span_activo");
+            document.getElementById("span_nombre").innerHTML = objResp.nombre;
+            document.getElementById("span_email").innerHTML = objResp.email;
+            document.getElementById("span_password").innerHTML = objResp.password;
+            spanId.innerHTML = objResp.id;
+            spanEdad.innerHTML = objResp.edad;
+            spanActivo.innerHTML = objResp.activo;
         } /*else {
             alert("Aun NO hemos recibido nada!");
         }*/
     };
     // Definimos la petición
     // document.location = "www.otraweb.com";
-    peticionHTTP.open("POST", "http://localhost:8084/WebVentas/clientes2.do", true);
+    peticionHTTP.open("PUT", /*http://localhost:8084/WebVentas/*/  "clientes2.do", true);
     peticionHTTP.setRequestHeader("Content-type" , 
             "application/x-www-form-urlencoded");
     // lanzamos la petición
@@ -44,7 +59,7 @@ var alPulsarModificar = function () {
           "nombre=" + encodeURIComponent(document.getElementById("nombre").value)
           + "&email=" + encodeURIComponent(document.getElementById("email").value)
           + "&password_encrip=" + encodeURIComponent(document.getElementById("password_encrip").value)
-          + "&activo=" + encodeURIComponent(document.getElementById("activo").value)
+          + "&activo=" + encodeURIComponent(activo)
           + "&edad=" + encodeURIComponent(document.getElementById("edad").value);
     
     alert("¿Qué se va a enviar?\n" + cadenaEnvio);

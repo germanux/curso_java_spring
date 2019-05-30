@@ -41,8 +41,10 @@ public class ProductoRestController extends HttpServlet
         
         System.out.println(">>>> " + producto.getNombre());
         
-        producto.setNombre(producto.getNombre().toUpperCase());
-        producto.setPrecio("5000 bolivares");
+        /*producto.setNombre(producto.getNombre().toUpperCase());
+        producto.setPrecio("5000 bolivares");*/
+        ServicioProductoSingleton sps = ServicioProductoSingleton.getInstancia(); 
+        sps.modificar(producto);
         
         String jsonRespuesta = gson.toJson(producto);
         escritorRespuesta.println(jsonRespuesta);

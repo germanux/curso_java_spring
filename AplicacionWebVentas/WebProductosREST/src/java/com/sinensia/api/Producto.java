@@ -10,7 +10,7 @@ package com.sinensia.api;
  *
  * @author Admin - German
  */
-public class Producto {
+public class Producto {   
 
     private String nombre;
     private String precio;

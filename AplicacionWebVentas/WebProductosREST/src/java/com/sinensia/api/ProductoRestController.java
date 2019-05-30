@@ -46,5 +46,7 @@ public class ProductoRestController extends HttpServlet
         
         String jsonRespuesta = gson.toJson(producto);
         escritorRespuesta.println(jsonRespuesta);
+        
+        // ServicioProductoSingleton i = ServicioProductoSingleton.getInstancia();
     }
 }

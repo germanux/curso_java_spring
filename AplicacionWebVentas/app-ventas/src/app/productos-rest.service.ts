@@ -22,7 +22,12 @@ export class ProductosRestService {
   addProducto(nombre: string, precio: string): Observable<any> {
 
     const nuevoProd: Producto = new Producto(nombre, precio);
-    const objFuturo = this.clienteHttp.post(this.url, nuevoProd);
+    const json = JSON.stringify(nuevoProd);
+    // const params = json;
+   // const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+
+    const objFuturo = this.clienteHttp.post(this.url, json 
+      /*{'headers': headers }*/);
     return objFuturo;
   }
 }

@@ -1,0 +1,9 @@
+<h1>
+  Listado de productos!
+</h1>
+{{ productos | json}}
+<div *ngFor="let prod of productos">
+  <span> {{ prod.nombre }} </span> - <span>  {{ prod.precio }}  </span>
+</div>
+<p *ngIf="error != null">{{ error }}</p>
+

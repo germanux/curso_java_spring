@@ -12,15 +12,20 @@ public class ServicioProductoSingleton {
     
     public void insertar(Producto p) {
         listaProductos.add(p);
+        //listaProductos.toString();
     }
+    
     public Producto modificar(Producto p) {
-        p.setNombre(p.getNombre() + " - Modificado");
-        p.setPrecio(p.getPrecio()+ " - Modificado");
+        p.setNombre(p.getNombre() + " - Modificando nombre");
+        p.setPrecio(p.getPrecio()+ " - Modificando nombre ");
         return p;
     }
-    public Producto[] obtenerTodos() {
-        return (Producto[]) listaProductos.toArray();
+    public ArrayList<Producto> obtenerTodos() {
+        
+        return  listaProductos;
+  
     }
+    
     // La única instancia es privada.
     private static ServicioProductoSingleton instancia = null;    
     // Nadie puede hacer new excepto dentro de esta clase.
@@ -28,8 +33,7 @@ public class ServicioProductoSingleton {
     private ServicioProductoSingleton() {
        this.listaProductos = new ArrayList<>();
     }
-    // La primera vez que se llama al método, se crea la instancia
-    // A partir de ese momento hasta que la aplicación termine,
+    // La primera vez que se llama al método, se crea la instancia A partir de ese momento hasta que la aplicación termine,
     // la instancia seguirá "viva" y es devuelta por el método, 
     // venga de donde venga la llamada.
     public static ServicioProductoSingleton getInstancia() {
@@ -38,4 +42,16 @@ public class ServicioProductoSingleton {
         return instancia;
     }
     
+    public void eliminar(Producto p) {
+      
+       for(int i =0;i<listaProductos.size();i++){
+           
+           //BUSCAMOS EL NOMBRE QUE SE LE PASA
+          if(listaProductos.get(i).getNombre().toLowerCase().trim().equals(p.getNombre().toLowerCase().trim()) ){
+              listaProductos.remove(listaProductos.get(i));
+          }
+           
+       }
+        
+    }
 }

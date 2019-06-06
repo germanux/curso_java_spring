@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: ejemplo_spring
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Admin
+Implementation-Vendor-Id: com.sinensia
+Build-Jdk: 1.8.0_211
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/ejemplo_spring
+Created-By: Maven Integration for Eclipse
+

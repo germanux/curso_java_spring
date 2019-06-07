@@ -3,6 +3,7 @@ package com.sinensia;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,7 +26,7 @@ public class ProductoController {
 		return new Producto(1, nombre, 100, 2);
 	}
 	
-	@GetMapping("/add")
+	@RequestMapping(method = RequestMethod.POST)
 	public @ResponseBody String addProducto(
 			@RequestParam String nombre,
 			@RequestParam double precio,
@@ -36,6 +37,11 @@ public class ProductoController {
 		prodRepo.save(nuevoProd);
 		
 		return "Guardado";
+	}
+	//@GetMapping("/todos")
+	@RequestMapping(method = RequestMethod.GET)
+	public @ResponseBody Iterable<Producto> getTodosProductos() {
+		return prodRepo.findAll();
 	}
 }
 

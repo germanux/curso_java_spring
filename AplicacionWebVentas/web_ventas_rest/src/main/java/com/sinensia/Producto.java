@@ -26,8 +26,12 @@ public class Producto implements Serializable {
     private String nombre;
     private double precio;
     private int cantidad;   
+    
+    public Producto() {
+		super();
+	}
 
-    public Producto(String nombre, double precio, int cantidad) {
+	public Producto(String nombre, double precio, int cantidad) {
 		super();
 		this.nombre = nombre;
 		this.precio = precio;

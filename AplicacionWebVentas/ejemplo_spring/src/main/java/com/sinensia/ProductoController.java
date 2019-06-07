@@ -1,13 +1,21 @@
 package com.sinensia;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+// http://localhost:8080/productos/obten_prueba
+
 @RestController
+@RequestMapping("/productos")
 public class ProductoController {
 
-	@RequestMapping("/productos")
-	public Producto devuelveProducto() {
-		return new Producto(1, "Examen", "30 €");
+	@RequestMapping("/obten_prueba")
+	public Producto devuelveProducto(
+			@RequestParam(value="nombre", defaultValue = "Sin producto") 
+			String nombre) 
+	{
+		System.out.print(" >>>>> PeticiÃ³n - HTTP: " + nombre);
+		return new Producto(1, nombre, "30 ï¿½");
 	}
 }

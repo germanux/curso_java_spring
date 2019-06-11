@@ -25,6 +25,8 @@ public class ProductoRestController extends HttpServlet {
         servProd.insertar(new Producto("Peine", "10 euros"));
         servProd.insertar(new Producto("Ordenador", "1000 euros"));
         servProd.insertar(new Producto("Pantalla", "100 euros"));
+        servProd.insertar(new Producto("Raton", "5 euros"));
+        servProd.insertar(new Producto("Un poco de locura", "no tiene precio"));
     }
 
     @Override
@@ -73,7 +75,7 @@ public class ProductoRestController extends HttpServlet {
         //  producto.setNombre(producto.getNombre().toUpperCase());
         // producto.setPrecio("5000 bolivares");
         //ServicioProductoSingleton sps = ServicioProductoSingleton.getInstancia(); 
-        //  servProd.modificar(producto);
+        servProd.modificar(producto);
         //  System.out.println("ESTE ES EL PRODUCTO "+ producto.toString());
         //DEVOLVER LA RESPUESTA COMO JSON
         String jsonRespuesta = gson.toJson(producto);
@@ -118,23 +120,23 @@ public class ProductoRestController extends HttpServlet {
             HttpServletResponse response)
             throws ServletException, IOException {
 
-//       PrintWriter escritorRespuesta =  response.getWriter();
-//        response.setContentType("application/json;charset=UTF-8");
+       PrintWriter escritorRespuesta =  response.getWriter();
+        response.setContentType("application/json;charset=UTF-8");
 //        
-//        BufferedReader bufRead = request.getReader();
+        BufferedReader bufRead = request.getReader();
 //        
-//        StringBuilder textoJson = new StringBuilder();
-//        for (String lineaJson = bufRead.readLine(); 
-//                lineaJson != null; 
-//                lineaJson = bufRead.readLine()) {
-//                textoJson.append(lineaJson);
-//        }
-//        bufRead.close();
+        StringBuilder textoJson = new StringBuilder();
+        for (String lineaJson = bufRead.readLine(); 
+                lineaJson != null; 
+                lineaJson = bufRead.readLine()) {
+                textoJson.append(lineaJson);
+        }
+        bufRead.close();
 // 
-//        Gson gson = new Gson();
-//        Producto producto = gson.fromJson(textoJson.toString(), Producto.class);
+        Gson gson = new Gson();
+        Producto producto = gson.fromJson(textoJson.toString(), Producto.class);
         //eliminar PRODUCTO
-        //servProd.eliminar(producto);
+        servProd.eliminar(producto);
     }
 
     @Override

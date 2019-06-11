@@ -6,23 +6,33 @@
 
 package com.sinensia.api;
 
+import java.util.Random;
+
 /**
  *
  * @author Admin - German
  */
 public class Producto {   
 
+    private static int contadorId = 1;
+    private int id;
     private String nombre;
     private String precio;
     
     public Producto() {
+        id = contadorId;
+        Producto.contadorId++;
     }   
 
     public Producto(String nombre, String precio) {
+        id = contadorId;
+        Producto.contadorId++;
         this.nombre = nombre;
         this.precio = precio;
     }
-    
+    public int getId() {
+        return id;
+    }
 
     public String getNombre() {
         return nombre;
@@ -39,6 +49,10 @@ public class Producto {
 
     public void setPrecio(String precio) {
         this.precio = precio;
+    }
+
+    public void setPrecio(int id) {
+        this.id = id;
     }
 
 }

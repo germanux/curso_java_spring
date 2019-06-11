@@ -16,14 +16,18 @@ public class ServicioProductoSingleton {
     }
     
     public Producto modificar(Producto p) {
-        p.setNombre(p.getNombre() + " - Modificando nombre");
-        p.setPrecio(p.getPrecio()+ " - Modificando nombre ");
-        return p;
+       for(int i =0;i<listaProductos.size();i++){
+           
+           //BUSCAMOS EL NOMBRE QUE SE LE PASA
+          if(listaProductos.get(i).getId() == p.getId() ){
+              listaProductos.set(i, p);
+              return p;
+          }           
+       }
+        return null;
     }
-    public ArrayList<Producto> obtenerTodos() {
-        
-        return  listaProductos;
-  
+    public ArrayList<Producto> obtenerTodos() {        
+        return  listaProductos;  
     }
     
     // La única instancia es privada.
@@ -47,11 +51,9 @@ public class ServicioProductoSingleton {
        for(int i =0;i<listaProductos.size();i++){
            
            //BUSCAMOS EL NOMBRE QUE SE LE PASA
-          if(listaProductos.get(i).getNombre().toLowerCase().trim().equals(p.getNombre().toLowerCase().trim()) ){
+          if(listaProductos.get(i).getId() == p.getId() ){
               listaProductos.remove(listaProductos.get(i));
-          }
-           
-       }
-        
+          }           
+       }        
     }
 }
